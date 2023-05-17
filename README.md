@@ -33,22 +33,6 @@ This tutorial was created on a personal laptop with 16 cores, 32GB of RAM, and a
 Once you have the environment set up and the unzipped dataset directory, `Audio`, 
 inside the `data` directory, you will be able to go through the notebook `tutorial.ipynb`.
 
-```sh
-## 1
-mkdir models data/hidden_state data/processed data/payloads data/external
-
-## 2
-`docker pull qdrant/qdrant`
-
-## 3
-docker run -p 6333:6333 \
-    -v $(pwd)/qdrant_storage:/qdrant/storage \
-    qdrant/qdrant
-
-## 4
-`dvc repro`
-```
-
 ## 2. The Data
 
 The dataset can be found on [Kaggle](https://www.kaggle.com/datasets/carlossalazar65/tropical-genres-dataset), 
@@ -115,7 +99,7 @@ Open up your terminal and navigate to a directory of your choosing in your compu
 Once there, run the following command to get the code for the session.
 
 ```sh
- git clone git@github.com:ramonpzg/audiodb.git
+ git clone git@github.com:ramonpzg/mlops-sydney-2023.git
 ```
 
 Conversely, you can click on the green `download` button at the top and donwload all 
@@ -128,15 +112,15 @@ To get all dependencies, packages and everything else that would be useful to re
 this project, you can recreate the environment by first going into the directory for the project.
 
 ```sh
-cd audiodb
+cd mlops-sydney-2023
 ```
 
 Then you will need to create an environment with all of the dependancies needed 
 for the session by running the following command.
 
 ```sh
-conda create -n vdb_audio python=3.10
-conda activate vdb_audio
+conda create -n mlops-sydney-2023 python=3.10
+conda activate mlops-sydney-2023
 conda install --yes --file requirements.txt
 # OR
 pip install -f requirements.txt
@@ -162,28 +146,3 @@ jupyter lab
 
 code .
 ```
-
-## Running the App
-
-If you'd like to see a nicer version (with memes) of the answers for this challenge. Run the following command in your terminal and inside the environment for this project.
-
-```sh
-streamlit run src/app.py
-```
-
-A new window should pop up in no time. Otherwise, you can go to http://localhost:8501 and view the app there.
-
-
-
-## 5. Next Steps
-
-- [ ] Fine-tune diffuser model
-- [ ] Get actual artists for each song
-- [ ] Add more songs and artists
-- [ ] Create a better pipeline with MetaFlow
-- [ ] Add explainability step
-- [ ] Add DB for queries used and outputs
-- [ ] Add human-in-the-loop feedback mechanism for data flywheel
-- [ ] Add testing suite
-- [ ] Add CI/CD
-- [ ] Add Experiment Tracking
